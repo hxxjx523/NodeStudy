@@ -14,6 +14,15 @@ const middle1 = require("./my_modules/middle1")
 //미들웨어 등록
 app.use(middle1);
 
+app.all("/all", (req, res, next)=>{
+    res.send("all");
+    next();
+});
+
+app.use("/use", (req, res, next)=>{
+    res.send("use");
+    next();
+});
 
 
 app.get('/', function (req, res, next){
